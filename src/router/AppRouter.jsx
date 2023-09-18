@@ -10,7 +10,7 @@ export const AppRouter = () => {
 
 const { status } = useCheckAuth();
   
-
+console.log(status);
   if ( status === 'checking'){
     return <CheckingAuth />
   }
@@ -20,13 +20,13 @@ const { status } = useCheckAuth();
     
     <Routes>
 
-        {
-          ( status === 'authenticated') 
-          ? <Route path="/*" element={ <JournalRoutes /> }/>
-          : <Route path="/auth/*" element={ <AuthRoutes /> }/>
+{
+          (status === 'authenticated')
+           ? <Route path="/*" element={ <JournalRoutes /> } />
+           : <Route path="/auth/*" element={ <AuthRoutes /> } />
         }
 
-        <Route path="/*" element={ <Navigate to='/auth/login' /> }/>
+        <Route path='/*' element={ <Navigate to='/auth/login' />  } />
 
         {/* Login y registro */}
         {/* <Route path="/auth/*" element={ <AuthRoutes /> }/> */}
